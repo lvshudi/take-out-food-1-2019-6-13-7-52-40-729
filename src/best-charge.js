@@ -1,6 +1,6 @@
 function bestCharge(selectedItems) {
   let itemsInfo = changeOrderToItems(selectedItems);
-  let priceAndRules = pricecalculatePrice(itemsInfo);
+  let priceAndRules = calculatePrice(itemsInfo);
   let result = resultFormat(priceAndRules, itemsInfo);
   return result;
 }
@@ -74,9 +74,9 @@ function calculatePrice(itemsInfo) {
 function resultFormat(priceAndRules, itemsInfo) {
   let result = "============= 订餐明细 =============\n";
   itemsInfo.forEach(itemInfo => {
-    result += itemInfo.name + " X " + itemInfo.count + " = " + itemInfo.price + "\n";
+    result += itemInfo.name + " X " + itemInfo.count + " = " + itemInfo.price + "元\n";
   });
-  result += "-----------------------------------\n使用优惠:\n" + priceAndRules[0] +
-            "\n-----------------------------------\n总计：" + priceAndRules[1] +"\n===================================";
+  result += "-----------------------------------\n使用优惠:\n" + priceAndRules[1] +
+            "\n-----------------------------------\n总计：" + priceAndRules[0] +"元\n===================================";
   return result;
 }
